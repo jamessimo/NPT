@@ -75,6 +75,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\allReporters.cs" />
+    <Compile Include="Assets\Scripts\allTopics.cs" />
+    <Compile Include="Assets\Scripts\basicSkills.cs" />
+    <Compile Include="Assets\Scripts\editorScript.cs" />
+    <Compile Include="Assets\Scripts\editorScriptT.cs" />
+    <Compile Include="Assets\Scripts\mainGame.cs" />
+    <Compile Include="Assets\Scripts\personality.cs" />
+    <Compile Include="Assets\Scripts\political.cs" />
+    <Compile Include="Assets\Scripts\reporter.cs" />
+    <Compile Include="Assets\Scripts\topic.cs" />
+    <Compile Include="Assets\Scripts\world.cs" />
     <Compile Include="Assets\sceneChanger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
