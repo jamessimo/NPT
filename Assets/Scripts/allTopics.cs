@@ -14,6 +14,4 @@ public class allTopics
     public topic cultureArts;
     public topic scienceTechnology;
     public topic healthEducation;
-    //= new topic("this is a topic", true);
-    // public topic art = new topic("this is a topic", true);
 }

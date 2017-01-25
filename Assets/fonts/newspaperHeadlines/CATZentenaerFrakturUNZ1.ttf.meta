@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 2fae62794b2e2da4695a9f5f783214ab
+timeCreated: 1485259974
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CAT Zentenaer Fraktur UNZ1
+  fontNames:
+  - CAT Zentenaer Fraktur UNZ1
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

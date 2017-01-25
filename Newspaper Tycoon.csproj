@@ -81,9 +81,11 @@
     <Compile Include="Assets\Scripts\editorScript.cs" />
     <Compile Include="Assets\Scripts\editorScriptT.cs" />
     <Compile Include="Assets\Scripts\mainGame.cs" />
+    <Compile Include="Assets\Scripts\newspaper.cs" />
     <Compile Include="Assets\Scripts\personality.cs" />
     <Compile Include="Assets\Scripts\political.cs" />
     <Compile Include="Assets\Scripts\reporter.cs" />
+    <Compile Include="Assets\Scripts\story.cs" />
     <Compile Include="Assets\Scripts\topic.cs" />
     <Compile Include="Assets\Scripts\world.cs" />
     <Compile Include="Assets\sceneChanger.cs" />

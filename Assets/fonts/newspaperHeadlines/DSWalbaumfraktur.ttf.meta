@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 74636797a20235a428d3074649e163ac
+timeCreated: 1485259974
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DS Walbaumfraktur
+  fontNames:
+  - DS Walbaumfraktur
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

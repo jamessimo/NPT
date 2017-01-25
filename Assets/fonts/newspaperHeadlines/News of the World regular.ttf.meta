@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ef5a9030026374e4ba4282c11a17a0df
+timeCreated: 1485260041
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: News of the World
+  fontNames:
+  - News of the World
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7e37dcdeb7ae2144e95fbf1cf94f817a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

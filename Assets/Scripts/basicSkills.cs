@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class basicSkills : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+[System.Serializable]
+public class basicSkills {
+    public int speed;
+    public int luck;
+    public int iq;
+    public int integrity;
+    public int quality;
 }
