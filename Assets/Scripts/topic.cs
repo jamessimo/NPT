@@ -4,7 +4,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class topic {
-    public string name;
-    public int xp;
-    public bool enabled;
+	public string name;
+	[Range(0, 100)] public int xp;
+    public bool enabled = true;
+
 }

@@ -15,14 +15,16 @@ public class reporter {
    
     public personality personality;
     public political political;
-    public int jobSatisfaction;
+	[Range(0, 100)] public int jobSatisfaction;
     public float wage;
-    public int sources;
+	public int sources;
     public bool isHired;
     public bool isInJail;
     public bool isDead;
     public bool isSick;
-    public int progress;
+
+	[Range(0, 100)] public int progress;
     public story currentStory;
+	public topic currentTopic;
     public GameObject reporterGO;
 }

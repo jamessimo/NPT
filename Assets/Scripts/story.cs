@@ -6,7 +6,7 @@ using UnityEngine;
 public class story
 {
     public string headline;
-    public topic currentTopic;
+    public topic storyTopic;
     public int authorID;
     public int quality;
     public political political;

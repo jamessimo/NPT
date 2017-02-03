@@ -4,9 +4,9 @@ using UnityEngine;
 
 [System.Serializable]
 public class basicSkills {
-    public int speed;
-    public int luck;
-    public int iq;
-    public int integrity;
-    public int quality;
+	[Range(0, 100)] public int speed;
+	[Range(0, 100)] public int luck;
+	[Range(0, 100)] public int iq;
+	[Range(0, 100)] public int integrity;
+	[Range(0, 100)] public int quality;
 }
