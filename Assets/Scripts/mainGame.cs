@@ -5,38 +5,50 @@ using UnityEngine;
 [System.Serializable]
 public class mainGame : MonoBehaviour {
 
-	//public allTopics topics;
+	public allTopics masterTopicsList;
     public allReporters reporters;
+	public List<reporter> hiredReporters;
+
+
 	// Use this for initialization
 	void Start () {
 
-		//topics.entertainment.name = "hello";
+		init ();
 
-		//reporters.reporters [0].allTopics;
-//		reporters.reporters [0].currentStory.currentTopic = topics.entertainment;
-		reporters.reporters [0].currentTopic = reporters.reporters [0].allTopics.finance;
+		reporters.reporters [0].allTopics = masterTopicsList;
 
-		writeArticle (reporters.reporters [0]);
+		Debug.Log (masterTopicsList.topics.Find(x => x.name.Contains("sports")));
 
-        //reporters.reporters[0].allTopics.entertainment.xp = 334;
-//		Debug.Log(reporters.reporters[0].allTopics.cultureArts.xp);
+	//	Debug.Log (masterTopicsList.topics.Find(reporters.reporters [0].allTopics.topics[2]));
 
+
+
+		//reporters.reporters [0].currentTopic = masterTopicsList.topics.Contains(new topic ("sports",true));
+		//reporters.reporters [0].allTopics.topics.Find(new topic{name = "finance"})
+		//reporters.reporters [0].currentTopic = reporters.reporters [0].allTopics.finance;
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-	void writeArticle (reporter r){
-		r.currentStory = new story ();
+		
+	void init (){
 
-	
-		r.currentStory.storyTopic = r.currentTopic;
+		//hide blur
+		GameObject.Find ("Blurout").SetActive(false);
 
-		Debug.Log (r.currentStory.storyTopic.name);
+		//Create All topics list
+		masterTopicsList.topics.Add(new topic ("finance",true));
+		masterTopicsList.topics.Add(new topic ("worldAffairs", true));
+		masterTopicsList.topics.Add(new topic ("politics",true));
+		masterTopicsList.topics.Add(new topic ("sports",true));
+		masterTopicsList.topics.Add(new topic ("entertainment", true));
+		masterTopicsList.topics.Add(new topic ("cultureArts", true));
+		masterTopicsList.topics.Add(new topic ("scienceTechnology", true));
+		masterTopicsList.topics.Add(new topic ("healthEducation", true));
 
-		r.currentStory.headline = "Random stuff";
-
+		//build
 
 
 	}

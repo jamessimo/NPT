@@ -6,6 +6,8 @@ using System.Collections.Generic;
 [Serializable]
 public class allTopics
 {
+	public List<topic> topics;
+	/*
     public topic finance;
     public topic worldAffairs;
     public topic politics;
@@ -14,4 +16,7 @@ public class allTopics
     public topic cultureArts;
     public topic scienceTechnology;
     public topic healthEducation;
+    */
+
+
 }

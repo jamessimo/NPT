@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\HireReporter.cs" />
      <Compile Include="Assets\Scripts\allReporters.cs" />
      <Compile Include="Assets\Scripts\allTopics.cs" />
      <Compile Include="Assets\Scripts\basicSkills.cs" />
@@ -59,7 +60,12 @@
      <Compile Include="Assets\Scripts\story.cs" />
      <Compile Include="Assets\Scripts\topic.cs" />
      <Compile Include="Assets\Scripts\world.cs" />
+     <Compile Include="Assets\SingleReporterCV.cs" />
+     <Compile Include="Assets\SingleReporterList.cs" />
+     <Compile Include="Assets\hireReportersList.cs" />
      <Compile Include="Assets\sceneChanger.cs" />
+     <None Include="Assets\ui\maskShader.shader" />
+     <None Include="Assets\ui\frosted.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

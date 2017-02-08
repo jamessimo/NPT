@@ -6,6 +6,13 @@ using UnityEngine;
 public class topic {
 	public string name;
 	[Range(0, 100)] public int xp;
-    public bool enabled = true;
+    public bool enabled;
+
+	public topic(string n, bool en)
+	{
+		name = n;
+
+		enabled = en;
+	}
 
 }

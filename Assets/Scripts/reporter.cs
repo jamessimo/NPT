@@ -14,8 +14,9 @@ public class reporter {
     public allTopics allTopics;
    
     public personality personality;
+
     public political political;
-	[Range(0, 100)] public int jobSatisfaction;
+	[Range(0, 1f)] public float jobSatisfaction;
     public float wage;
 	public int sources;
     public bool isHired;
@@ -27,4 +28,10 @@ public class reporter {
     public story currentStory;
 	public topic currentTopic;
     public GameObject reporterGO;
+	void init (){
+		//Cleanup floats
+	}
+	void writeArticle (){
+		Debug.Log (this.firstName);
+	}
 }
