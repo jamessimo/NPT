@@ -2,7 +2,8 @@
 {
     Properties
     {
-        _Radius("Radius", Range(1, 255)) = 1
+    // Range(1, 255)
+        _Radius("Radius",float) = 2
     }
  
     Category

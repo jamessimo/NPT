@@ -5,11 +5,20 @@ using UnityEngine;
 public class SingleReporterList : MonoBehaviour {
 
 	public reporter selectedReporter;
-	SingleReporterCV hireReporterScript;
+	public SingleReporterCV hireReporterScript;
+	private GameObject blur;
+	private GameObject cvWindow;
+
+	mainGame mainGame;
+
+
 	// Use this for initialization
 	void Start () {
+		mainGame = GameObject.FindObjectOfType<mainGame>();
+
 		hireReporterScript = GameObject.FindObjectOfType<SingleReporterCV>();
-	
+		cvWindow = GameObject.Find ("SingleReporterCV");
+
 	}
 
 	// Update is called once per frame
@@ -19,12 +28,18 @@ public class SingleReporterList : MonoBehaviour {
 
 	public void openCV(){
 
-		Debug.Log (selectedReporter.firstName);
-
-
-		//blur.SetActive (true);
-
+		//Debug.Log (selectedReporter.firstName);
 		//GameObject.Find ("SingleReporterCV").SetActive(true);
+
+		GameObject.Find ("SingleReporterCV").GetComponent<CanvasGroup> ().alpha = 0f;
+		//GameObject.Find ("Blurout").GetComponent<CanvasGroup> ().alpha = 1f;
+
+		hireReporterScript.populateCV (selectedReporter);
+		StartCoroutine(mainGame.fadeInOut(GameObject.Find ("SingleReporterCV").GetComponent<CanvasGroup>()));
+
+		//cvWindow.SetActive (true);
+		//GameObject.Find ("Blurout").SetActive(true);
+
 		//hireReporterScript.currentReporter = selectedReporter;
 	}
 }

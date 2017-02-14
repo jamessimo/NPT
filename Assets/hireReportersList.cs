@@ -13,6 +13,23 @@ public class hireReportersList : MonoBehaviour {
 	void Start () {
 		
 		mainGame = GameObject.FindObjectOfType<mainGame>();
+		createList ();
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+	public void createList(){
+
+	
+		//Clear all items
+		int items = this.transform.childCount;
+		for (int i = items - 1; i > 0; i--)
+		{
+			GameObject.Destroy(this.transform.GetChild(i).gameObject);
+		}
 
 		foreach (reporter r in mainGame.reporters.reporters) {
 			if (r.isHired == false) {
@@ -27,15 +44,8 @@ public class hireReportersList : MonoBehaviour {
 				go.transform.Find ("Sources").GetComponent<Text> ().text = r.sources.ToString (); 
 				go.transform.Find ("QualitySlider").GetComponent<Slider> ().value = r.skills.quality;
 			}
-
-
 		}
-
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
 		
-	}
 }

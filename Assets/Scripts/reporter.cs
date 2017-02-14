@@ -28,10 +28,13 @@ public class reporter {
     public story currentStory;
 	public topic currentTopic;
     public GameObject reporterGO;
-	void init (){
+	public void init (){
 		//Cleanup floats
 	}
-	void writeArticle (){
+	public void writeArticle (){
 		Debug.Log (this.firstName);
+	}
+	public void hireMe (){
+		this.isHired = true;
 	}
 }

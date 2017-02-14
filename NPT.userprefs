@@ -1,15 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/mainGame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/unity-ui-extensions/Scripts/ToolTips/HoverTooltip.cs">
     <Files>
-      <File FileName="Temp/Compiled-Hidden-NewImageEffectShader.shader" Line="1" Column="1" />
-      <File FileName="Assets/hireReportersList.cs" Line="19" Column="120" />
-      <File FileName="Assets/Scripts/mainGame.cs" Line="50" Column="1" />
-      <File FileName="Assets/Scripts/reporter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/mainGame.cs" Line="63" Column="1" />
+      <File FileName="Assets/Scripts/reporter.cs" Line="38" Column="23" />
       <File FileName="Assets/Scripts/personality.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/basicSkills.cs" Line="1" Column="1" />
-      <File FileName="Assets/ui/maskShader.shader" Line="9" Column="46" />
-      <File FileName="Assets/HireReporter.cs" Line="1" Column="1" />
+      <File FileName="Assets/SingleReporterCV.cs" Line="98" Column="19" />
+      <File FileName="Assets/SingleReporterList.cs" Line="14" Column="2" />
+      <File FileName="Assets/Scripts/topic.cs" Line="8" Column="11" />
+      <File FileName="Assets/ui/customBlur.shader" Line="2" Column="28" />
+      <File FileName="Assets/reporterGameObject.cs" Line="6" Column="20" />
+      <File FileName="Assets/Standard Assets/Cameras/Scripts/FreeLookCam.cs" Line="37" Column="1" />
+      <File FileName="Assets/ui/maskShader.shader" Line="8" Column="10" />
+      <File FileName="Assets/unity-ui-extensions/Scripts/ToolTips/HoverTooltip.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

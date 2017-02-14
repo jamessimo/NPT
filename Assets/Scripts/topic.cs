@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class topic {
 	public string name;
-	[Range(0, 100)] public int xp;
+	[Range(0f, 1f)] public float xp;
     public bool enabled;
 
 	public topic(string n, bool en)
