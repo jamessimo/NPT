@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\HireReporter.cs" />
      <Compile Include="Assets\Scripts\allReporters.cs" />
      <Compile Include="Assets\Scripts\allTopics.cs" />
      <Compile Include="Assets\Scripts\basicSkills.cs" />

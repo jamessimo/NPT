@@ -6,9 +6,9 @@ using UnityEngine.UI.Extensions;
 
 public class SingleReporterCV : MonoBehaviour {
 	
-	public reporter currentReporter;
+	private reporter currentReporter;
 	mainGame mainGame;
-	public hireReportersList hrList;
+	private hireReportersList hrList;
 
 
 	// Use this for initialization
@@ -50,7 +50,8 @@ public class SingleReporterCV : MonoBehaviour {
 			switch (t.name)
 			{
 			case "finance":
-				
+
+		
 				this.transform.Find("Topics").FindChild("finance").GetComponentInChildren<Slider> ().value = t.xp;
 
 				break;
@@ -103,6 +104,8 @@ public class SingleReporterCV : MonoBehaviour {
 
 		GameObject go = (GameObject)Instantiate (currentReporter.reporterGO);
 		go.GetComponent<reporterGameObject> ().r = currentReporter;
+
+
 		//Show single reporter screen
 		//set single reporter view with data 
 	}
