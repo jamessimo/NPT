@@ -46,24 +46,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\HiredReportersList.cs" />
+     <Compile Include="Assets\Scripts\SingleReporterCV.cs" />
+     <Compile Include="Assets\Scripts\SingleReporterList.cs" />
+     <Compile Include="Assets\Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\allReporters.cs" />
      <Compile Include="Assets\Scripts\allTopics.cs" />
      <Compile Include="Assets\Scripts\basicSkills.cs" />
      <Compile Include="Assets\Scripts\editorScript.cs" />
      <Compile Include="Assets\Scripts\editorScriptT.cs" />
+     <Compile Include="Assets\Scripts\hireReportersList.cs" />
      <Compile Include="Assets\Scripts\mainGame.cs" />
      <Compile Include="Assets\Scripts\newspaper.cs" />
      <Compile Include="Assets\Scripts\personality.cs" />
      <Compile Include="Assets\Scripts\political.cs" />
      <Compile Include="Assets\Scripts\reporter.cs" />
+     <Compile Include="Assets\Scripts\reporterGameObject.cs" />
+     <Compile Include="Assets\Scripts\sceneChanger.cs" />
      <Compile Include="Assets\Scripts\story.cs" />
      <Compile Include="Assets\Scripts\topic.cs" />
      <Compile Include="Assets\Scripts\world.cs" />
-     <Compile Include="Assets\SingleReporterCV.cs" />
-     <Compile Include="Assets\SingleReporterList.cs" />
-     <Compile Include="Assets\hireReportersList.cs" />
-     <Compile Include="Assets\reporterGameObject.cs" />
-     <Compile Include="Assets\sceneChanger.cs" />
      <Compile Include="Assets\unity-ui-extensions\Examples\UIVerticalScrollerDemo\Scripts\ScrollingCalendar.cs" />
      <Compile Include="Assets\unity-ui-extensions\Examples\testHref.cs" />
      <Compile Include="Assets\unity-ui-extensions\Scripts\Controls\Accordion\Accordion.cs" />

@@ -8,12 +8,17 @@ public class SingleReporterCV : MonoBehaviour {
 	
 	private reporter currentReporter;
 	mainGame mainGame;
+
 	private hireReportersList hrList;
 
+	private HiredReportersList hiredReportersScript;
 
 	// Use this for initialization
 	void Start () {
 		mainGame = GameObject.FindObjectOfType<mainGame>();
+
+		hiredReportersScript = GameObject.FindObjectOfType<HiredReportersList>();
+
 
 		hrList = GameObject.FindObjectOfType<hireReportersList>();
 		//GameObject.Find ("SingleReporterCV").GetComponent<CanvasGroup> ().alpha = 0f;
@@ -105,9 +110,8 @@ public class SingleReporterCV : MonoBehaviour {
 		GameObject go = (GameObject)Instantiate (currentReporter.reporterGO);
 		go.GetComponent<reporterGameObject> ().r = currentReporter;
 
-
-		//Show single reporter screen
-		//set single reporter view with data 
+		hiredReportersScript.createList ();
+		//Trigger event to tell other script to update
 	}
 
 	public void closeWindow () {
