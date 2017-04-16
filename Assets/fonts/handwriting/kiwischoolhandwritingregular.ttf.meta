@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 474fe23d1c1d842998b4bf467e85f51d
+timeCreated: 1490602711
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Kiwi School Handwriting
+  fontNames:
+  - Kiwi School Handwriting
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

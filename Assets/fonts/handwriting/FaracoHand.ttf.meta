@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6f73e725f1f8e4be79a140b6c737a779
+timeCreated: 1490602716
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Faraco Hand
+  fontNames:
+  - Faraco Hand
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

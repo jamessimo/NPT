@@ -38,3 +38,5 @@
 /Users/jamessimonson/Sites/NPT/Temp/bin/Debug/Mono.Cecil.Mdb.dll
 /Users/jamessimonson/Sites/NPT/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.dll
 /Users/jamessimonson/Sites/NPT/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.xml
+/Users/jamessimonson/Sites/NPT/Temp/bin/Debug/TextMeshPro.dll
+/Users/jamessimonson/Sites/NPT/Temp/bin/Debug/TextMeshPro-Editor.dll

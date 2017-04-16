@@ -19,3 +19,4 @@
 /Users/jamessimonson/Sites/NPT/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/jamessimonson/Sites/NPT/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/jamessimonson/Sites/NPT/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/jamessimonson/Sites/NPT/Temp/bin/Debug/TextMeshPro.dll

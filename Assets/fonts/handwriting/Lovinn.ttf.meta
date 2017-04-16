@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6b5ef275275a147c2bf1b4e2b6a73d80
+timeCreated: 1490602711
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Lovinn
+  fontNames:
+  - Lovinn
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

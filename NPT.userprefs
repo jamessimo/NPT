@@ -1,11 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/HiredReportersList.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/HireReportersList.cs">
     <Files>
-      <File FileName="Assets/HiredReportersList.cs" Line="81" Column="6" />
-      <File FileName="Assets/Scripts/mainGame.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/reporter.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SingleReporterCV.cs" Line="55" Column="3" />
+      <File FileName="Assets/scripts/mainGame.cs" Line="77" Column="46" />
+      <File FileName="Assets/scripts/classes/audience.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/UIManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/reporterGameObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/classes/reporter.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/classes/political.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/classes/story.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/classes/desk.cs" Line="1" Column="1" />
+      <File FileName="Assets/UIController.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/HiredReportersList.cs" Line="37" Column="1" />
+      <File FileName="Assets/scripts/HireReportersList.cs" Line="30" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

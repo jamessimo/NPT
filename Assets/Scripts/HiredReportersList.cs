@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HiredReportersList : MonoBehaviour {
 	public GameObject singleHiredReporterUI;
@@ -19,7 +20,7 @@ public class HiredReportersList : MonoBehaviour {
 	public void createList(){
 
 		//Clear all items
-		int items = this.transform.childCount;
+		int items = this.transform.childCount - 1;
 		for (int i = items - 1; i > 0; i--)
 		{
 			GameObject.Destroy(this.transform.GetChild(i).gameObject);
@@ -31,8 +32,8 @@ public class HiredReportersList : MonoBehaviour {
 				GameObject go = (GameObject)Instantiate (singleHiredReporterUI);
 
 				go.transform.SetParent (this.transform);
-				go.transform.Find ("ReporterName").GetComponent<Text> ().text = r.firstName + " " + r.secondName + " (" + r.age + ")"; 
-				go.transform.Find ("QualitySlider").GetComponent<Slider> ().value = r.skills.quality;
+				go.transform.Find ("ReporterName").GetComponent<TextMeshProUGUI> ().text = r.firstName + " " + r.secondName + " (" + r.age + ")"; 
+				go.transform.Find ("QualitySlider").GetComponent<Slider> ().value = (r.skills.integrity + r.skills.quality) / 2;;
 				go.transform.Find ("HappySlider").GetComponent<Slider> ().value = r.jobSatisfaction;
 
 				Dropdown ddTopics = go.transform.Find("TopicsDropdown").GetComponent<Dropdown>();

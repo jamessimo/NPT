@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e78b6a7f7c9d34933ab1be2f9dbfc458
+timeCreated: 1490602711
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PhontPhreak's Handwriting
+  fontNames:
+  - PhontPhreak's Handwriting
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9b5da832397114555811e0c5cb1d3173, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
