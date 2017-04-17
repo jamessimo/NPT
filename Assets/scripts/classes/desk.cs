@@ -16,8 +16,11 @@ public class desk : MonoBehaviour {
 	public GameObject papers;
 
 	void OnTriggerEnter(Collider hit){
-		if (hit.gameObject.GetComponent<reporterGameObject> ().r.currentDesk == this.gameObject) {
-			hit.gameObject.GetComponent<reporterGameObject> ().sitAtDesk ();
+
+		reporterGameObject hitReporter = hit.gameObject.GetComponent<reporterGameObject> ();
+
+		if (hitReporter.r.currentDesk == this.gameObject) {
+			hitReporter.fsm.ChangeState(hitReporter.States.SitAtDesk);
 		}
 	}
 }

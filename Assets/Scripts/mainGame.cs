@@ -18,6 +18,8 @@ public class mainGame : MonoBehaviour {
 
 	private ModalPanel modalPanel;
 
+	public GameObject spawnZone;
+
 	void Awake () {
 		modalPanel = ModalPanel.Instance();
 	}

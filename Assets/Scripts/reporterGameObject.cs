@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using StateMachine;
 
 public class reporterGameObject : MonoBehaviour {
 	public reporter r;
@@ -18,19 +19,36 @@ public class reporterGameObject : MonoBehaviour {
 	public float[] draftPower;
 
 	public NavMeshAgent agent;
+	public Animator anim;
+
+
+	public enum States
+	{
+		Idle,
+		GotoDesk,
+		SitAtDesk,
+		WriteStory
+
+	}
+	public StateMachine<States> fsm;
+
+
+
 	// Use this for initialization
 	void Start () {
 
-		Debug.Log("Reporter Gameobject Mono init");
-	
-		agent = GetComponent<NavMeshAgent>();
 
-		g = GameObject.FindObjectOfType<mainGame>();		
-		//startWriting ();
+		fsm = StateMachine<States>.Initialize(this, States.Idle);
+
+		agent = GetComponent<NavMeshAgent>();
+		anim = GetComponent<Animator>();
+		g = GameObject.FindObjectOfType<mainGame>();
+
 	}
 	
 	// Update is called once per frame
-	void Update () {
+
+	/*void Update () {
 		if (r.currentDesk == null) {
 			desks = GameObject.FindGameObjectsWithTag ("Desk");
 			foreach (GameObject d in desks) {
@@ -43,19 +61,16 @@ public class reporterGameObject : MonoBehaviour {
 				}
 			}
 		} else {
-		//Update empty desk with reporter info
+
+			//Update empty desk with reporter info
 			//r.currentDesk.GetComponent<desk>().currentReporter = r;
 			//r.currentDesk.GetComponent<desk>().currentTopic = r.currentTopic;
 		}
 
 		if (r.currentDesk == null) {
-			
 			Debug.Log (r.firstName + " has no desk!");
+		} 
 
-
-		} else {
-			agent.destination = r.currentDesk.transform.position; 
-		}
 
 		//If at desk and has a story
 		if (r.isAtDesk == true && r.currentStory.headline != null ) {
@@ -64,8 +79,39 @@ public class reporterGameObject : MonoBehaviour {
 
 		//Does reporter have a story to write? 
 
+	}*/
+
+
+
+	public void Idle_Enter(){
+
+		//SET ANIMATION TO IDLE
+
+		Debug.Log ("I am now idle");
+
 	}
-	public void sitAtDesk () {
+
+	public void Idle_Update(){
+		Debug.Log ("I am waitng idle");
+		//fsm.ChangeState(States.Idle);
+
+
+	}
+
+	public void GotoDesk_Enter(){
+		
+		//this.anim.SetTrigger ("Walk");
+
+		//Find desk 
+
+
+		this.agent.destination = r.currentDesk.transform.position; 
+	}
+	public void GotoDesk_Update(){
+		
+	}
+
+	public void SitAtDesk_Enter () {
 		agent.Stop ();
 	
 		this.transform.GetComponent<CapsuleCollider> ().enabled = false;
@@ -146,7 +192,7 @@ public class reporterGameObject : MonoBehaviour {
 
 	}
 
-	public void draftAdd 	() {
+	public void draftAdd () {
 		r.currentStory.draft += 1;
 		if (r.currentStory.quality != 1) {
 			r.currentStory.quality = (startSources * singleSource) + (singleSource * (r.currentStory.draft + r.skills.integrity));

@@ -128,12 +128,12 @@ public class HireReportersList : MonoBehaviour {
 	
 		//StartCoroutine(commonHelpers.fadeInOut(currentReporter.myCV.GetComponent<CanvasGroup>()));
 
-		/*
-		currentReporter.reporterGO.transform.position = spawnZone.transform.position;
+
+		currentReporter.reporterGO.transform.position = mainGame.spawnZone.transform.position;
 		GameObject go = (GameObject)Instantiate (currentReporter.reporterGO);
 		//THIS NEEDS TO BE LIKE A FUCNTION
 		go.GetComponent<reporterGameObject> ().r = currentReporter;
-		*/
+	
 
 	}
 
