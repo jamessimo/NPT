@@ -244,7 +244,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro">
- <HintPath>/Users/jamessimonson/Sites/NPT/Assets/TextMesh Pro/Plugins/TextMeshPro.dll</HintPath>
+ <HintPath>/Users/jamessimo/Sites/NPT/Assets/TextMesh Pro/Plugins/TextMeshPro.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

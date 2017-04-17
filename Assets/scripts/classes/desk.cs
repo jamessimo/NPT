@@ -20,7 +20,7 @@ public class desk : MonoBehaviour {
 		reporterGameObject hitReporter = hit.gameObject.GetComponent<reporterGameObject> ();
 
 		if (hitReporter.r.currentDesk == this.gameObject) {
-			hitReporter.fsm.ChangeState(hitReporter.States.SitAtDesk);
+		//	hitReporter.fsm.ChangeState(hitReporter.States.SitAtDesk);
 		}
 	}
 }

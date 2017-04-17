@@ -27,7 +27,11 @@ public class reporterGameObject : MonoBehaviour {
 		Idle,
 		GotoDesk,
 		SitAtDesk,
-		WriteStory
+		IdleAtDesk,
+		WriteStory,
+		DrinkAtDesk,
+		StressAtDesk,
+		LeaveDesk
 
 	}
 	public StateMachine<States> fsm;
@@ -92,39 +96,32 @@ public class reporterGameObject : MonoBehaviour {
 	}
 
 	public void Idle_Update(){
-
-		//DO I HAVE A STORY 
 		//DO I OWN A DESK?
-		if (r.currentDesk != null) {
-			//AM I ACCUALLY AT MY DESK? 
+		if (hasDesk ()) {
+			//WALK TO DESK
+			fsm.ChangeState(States.GotoDesk);
 		
 		} else {
-		
-		
+			//FIND A FREE DESK
+			findDesk ();
 		}
-
-
-		Debug.Log ("I am waitng idle");
-
-		//am I at a desk? 
-
-
-		//fsm.ChangeState(States.Idle);
-
-
 	}
 
 	public void GotoDesk_Enter(){
 		
 		//this.anim.SetTrigger ("Walk");
-
-		//Find desk 
-
-
 		this.agent.destination = r.currentDesk.transform.position; 
 	}
 	public void GotoDesk_Update(){
 		
+		float distance = Vector3.Distance (r.currentDesk.gameObject.transform.position, this.transform.position);
+		Debug.Log (distance);
+
+		if (distance < 1.7f) {
+			fsm.ChangeState(States.SitAtDesk);
+
+		}
+
 	}
 
 	public void SitAtDesk_Enter () {
@@ -141,16 +138,29 @@ public class reporterGameObject : MonoBehaviour {
 		r.currentDesk.GetComponent<desk>().currentTopic = r.currentTopic;
 		r.currentDesk.GetComponent<desk> ().available = false;
 
-		startWriting ();
 
 	}
-		
-	public void startWriting () {
+	public void SitAtDesk_Update () {
+		//IF HAS NO SET TOPIC
+		if (r.currentTopic == null) {
+			//Idle at desk
+			fsm.ChangeState(States.IdleAtDesk);
+		}else{
+			if (r.currentStory == null) {
+				startWriting ();
+				fsm.ChangeState(States.WriteStory);
 
-		if (r.isAtDesk == false) {
-			Debug.Log (r.firstName + " is not at desk");
-			return;
+			} else {
+				//HAS A STORY ALREADY
+				if(r.progress < 100){
+					fsm.ChangeState(States.WriteStory);
+				}
+			} 
 		}
+
+	}
+
+	public void startWriting () {
 
 		//Create a new story
 		r.currentStory = new story ();
@@ -201,11 +211,29 @@ public class reporterGameObject : MonoBehaviour {
 			}
 
 
-		StartCoroutine(writeStory());
+		//StartCoroutine(writeStory());
 		//Make sure reporter is at desk 
 
 		//Set state to "Writing"
 
+	}
+
+
+	public void WriteStory_Enter(){
+		
+
+	}
+
+	public void WriteStory_Update(){
+
+		r.progress += r.skills.speed / 10;
+		//TODO add a sprite effect to r.reporterGO
+		Debug.Log ("Story progress: " + r.progress);
+
+		if (r.progress >= 100) {
+			fsm.ChangeState(States.IdleAtDesk);
+
+		}
 	}
 
 	public void draftAdd () {
@@ -225,7 +253,35 @@ public class reporterGameObject : MonoBehaviour {
 		// animate sliders
 	}
 
-	public IEnumerator writeStory() {
+	public bool hasDesk(){
+		if (r.currentDesk == null) {
+			return false;
+		} else {
+			return true;
+		}
+	
+	}
+
+	public void findDesk(){
+		if (r.currentDesk == null) {
+			desks = GameObject.FindGameObjectsWithTag ("Desk");
+			foreach (GameObject d in desks) {
+				if (d.GetComponent<desk> ().available == true) {
+					d.GetComponent<desk> ().currentReporter = r;
+					r.currentDesk = d;
+					d.GetComponent<desk> ().available = false;
+					d.GetComponent<desk> ().currentTopic = r.currentTopic;
+					return;
+				}
+			}
+		}
+		if (r.currentDesk == null) {
+			Debug.Log (r.firstName + " cant find a DESK");
+
+		}
+	}
+
+	/*public IEnumerator writeStory() {
 		if (r.progress < 1) {
 			while (r.progress < 1 ) {
 
@@ -244,7 +300,7 @@ public class reporterGameObject : MonoBehaviour {
 
 		Debug.Log ("Story done");
 		presentStory ();
-	}
+	}*/
 
 
 
