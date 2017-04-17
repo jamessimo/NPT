@@ -92,7 +92,23 @@ public class reporterGameObject : MonoBehaviour {
 	}
 
 	public void Idle_Update(){
+
+		//DO I HAVE A STORY 
+		//DO I OWN A DESK?
+		if (r.currentDesk != null) {
+			//AM I ACCUALLY AT MY DESK? 
+		
+		} else {
+		
+		
+		}
+
+
 		Debug.Log ("I am waitng idle");
+
+		//am I at a desk? 
+
+
 		//fsm.ChangeState(States.Idle);
 
 
