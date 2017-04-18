@@ -13,4 +13,5 @@ public class story
 	[Range(0, 1f)] public float trust;
     public int draft;
 
+
 }

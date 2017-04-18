@@ -16,4 +16,6 @@ public class newspaper {
 	[Range(-1f, 1f)] public float integrity;
     public story todaysStory;
     public List<story> history;
+
+	[Range(0, 1f)] public float progress;
 }

@@ -44,3 +44,5 @@
 /Users/jamessimonson/Sites/NPT/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.xml
 /Users/jamessimonson/Sites/NPT/Temp/bin/Debug/TextMeshPro.dll
 /Users/jamessimonson/Sites/NPT/Temp/bin/Debug/TextMeshPro-Editor.dll
+/Users/jamessimonson/Sites/NPT/Temp/bin/Debug/UnityEngine.Advertisements.dll
+/Users/jamessimonson/Sites/NPT/Temp/bin/Debug/UnityEngine.Purchasing.dll

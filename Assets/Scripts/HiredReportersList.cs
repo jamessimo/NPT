@@ -81,8 +81,7 @@ public class HiredReportersList : MonoBehaviour {
 					}
 
 				}
-
-
+					
 				if (r.currentTopic != null) {
 					//Loop all topics and match dd i
 					for (int i = 0; i < r.allTopics.topics.Count; i++) {
@@ -95,6 +94,9 @@ public class HiredReportersList : MonoBehaviour {
 				}
 				ddTopics.onValueChanged.AddListener(delegate {
 					r.currentTopic = r.allTopics.topics[ddTopics.value];
+					if(r.currentTopic == null){
+						r.reporterGO.GetComponent<reporterGameObject>().fsm.ChangeState(reporterGameObject.States.IdleAtDesk);
+					}
 				});
 
 				//r.currentTopic = r.allTopics.topics [1];
