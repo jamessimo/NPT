@@ -35,7 +35,7 @@ Cmd: preprocess
 Cmd: preprocess
   insize=701 outsize=270 ok=1
 Cmd: preprocess
-  insize=6615 outsize=842 ok=1
+  insize=6328 outsize=781 ok=1
 Cmd: preprocess
   insize=1199 outsize=210 ok=1
 Cmd: preprocess
@@ -75,9 +75,9 @@ Cmd: preprocess
 Cmd: preprocess
   insize=769 outsize=680 ok=1
 Cmd: preprocess
-  insize=1440 outsize=601 ok=1
+  insize=1373 outsize=572 ok=1
 Cmd: preprocess
-  insize=796 outsize=321 ok=1
+  insize=759 outsize=305 ok=1
 Cmd: preprocess
   insize=5320 outsize=728 ok=1
 Cmd: preprocess
@@ -95,6 +95,6 @@ Cmd: preprocess
 Cmd: preprocess
   insize=512 outsize=209 ok=1
 Cmd: preprocess
-  insize=5652 outsize=761 ok=1
+  insize=5418 outsize=706 ok=1
 Cmd: preprocess
   insize=1093 outsize=935 ok=1

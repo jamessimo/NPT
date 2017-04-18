@@ -80,6 +80,7 @@ public class mainGame : MonoBehaviour {
 
 	public void Play_Enter(){
 		unPauseGame ();
+
 	}
 	public void Play_Update(){
 		//FIND IF STORY IS FINISHED 
@@ -88,6 +89,7 @@ public class mainGame : MonoBehaviour {
 		} else {
 			fsm.ChangeState(States.WritingMode);
 		}
+		Debug.Log (fsm.State);
 	}
 
 	public void WritingMode_Enter(){
@@ -95,20 +97,24 @@ public class mainGame : MonoBehaviour {
 	}
 	public void WritingMode_Update(){
 
+		if (newsPaper.pNewspaper.progress >= 1f /*AND CUR STORY*/) {
+			fsm.ChangeState (States.PrintingMode);
+		}
 
 
 	}
 
 	public void PrintingMode_Enter(){
+		Debug.Log("NOE THE NEWSPAPER IS PRINTING");
 		//LOOP THROUGH ALL REPORTERS AND CHANGE STATE TO IDLE
 		foreach (reporter r in hiredReporters) {
 			reporterGameObject iReporter = r.reporterGO.GetComponent<reporterGameObject> ();
-			r.reporterGO.GetComponent<reporterGameObject> ().fsm.ChangeState (r.reporterGO.GetComponent<reporterGameObject> ().States.Idle);
+			r.reporterGO.GetComponent<reporterGameObject> ().fsm.ChangeState (reporterGameObject.States.Idle);
 		}
 
 	}
 	public void PrintingMode_Update(){
-		newsPaper.pNewspaper.progress += 0.01f;
+		//Untill the end of day, add to the number of printed papers
 	}
 	
 	// Update is called once per frame
@@ -117,7 +123,7 @@ public class mainGame : MonoBehaviour {
 	}
 		
 	void init (){
-
+		newsPaper.pNewspaper.progress = 0;
 		foreach (reporter r in reporters.reporters) {
 			if (r.isHired == true) {
 				GameObject go = (GameObject)Instantiate (r.reporterGO);

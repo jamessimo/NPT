@@ -225,10 +225,10 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro">
- <HintPath>/Users/jamessimonson/Sites/NPT/Assets/TextMesh Pro/Plugins/TextMeshPro.dll</HintPath>
+ <HintPath>/Users/jamessimo/Sites/NPT/Assets/TextMesh Pro/Plugins/TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-Editor">
- <HintPath>/Users/jamessimonson/Sites/NPT/Assets/TextMesh Pro/Plugins/Editor/TextMeshPro-Editor.dll</HintPath>
+ <HintPath>/Users/jamessimo/Sites/NPT/Assets/TextMesh Pro/Plugins/Editor/TextMeshPro-Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>

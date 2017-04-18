@@ -57,7 +57,7 @@ public class reporterGameObject : MonoBehaviour {
 	public void Idle_Update(){
 		//DO I OWN A DESK?
 
-		if (g.fsm.State == g.States.WritingMode) {
+		if (g.fsm.State == mainGame.States.WritingMode) {
 			
 			if (hasDesk ()) {
 				
@@ -79,7 +79,6 @@ public class reporterGameObject : MonoBehaviour {
 	}
 	public void GotoDesk_Update(){
 		float distance = Vector3.Distance (r.currentDesk.gameObject.transform.position, this.transform.position);
-		Debug.Log (distance);
 
 		if (distance < 1.7f) {
 			fsm.ChangeState(States.SitAtDesk);
@@ -113,7 +112,7 @@ public class reporterGameObject : MonoBehaviour {
 
 	public void IdleAtDesk_Enter () {
 		//IDLE AT DESK ANIMATION
-
+		Debug.Log("I am idle AT DESK");
 	}
 
 	public void IdleAtDesk_Update () {
@@ -183,9 +182,8 @@ public class reporterGameObject : MonoBehaviour {
 		//TODO add a sprite effect to r.reporterGO
 
 		if (r.progress >= 1f) {
-			Debug.Log ("Story Finished!");
 			r.progress = 1f;
-			presentStory ();
+			//presentStory ();
 		}
 
 		if (r.progress >= 1f && g.newsPaper.pNewspaper.progress >= 1f) {
@@ -208,6 +206,7 @@ public class reporterGameObject : MonoBehaviour {
 				//REPORTER IS ADDING TO HIS OWN STORY
 				g.newsPaper.pNewspaper.progress += r.skills.speed / 500;
 			}
+			Debug.Log (g.newsPaper.pNewspaper.progress);
 
 		}
 
@@ -245,7 +244,8 @@ public class reporterGameObject : MonoBehaviour {
 
 		storyPageUI.transform.Find ("EditButton").GetComponent<Button> ().onClick.AddListener(delegate{draftAdd();});
 		storyPageUI.transform.Find ("PublishButton").GetComponent<Button> ().onClick.AddListener(delegate{
-			g.fsm.ChangeState(g.States.PrintingMode);
+			publishStory();
+
 		});
 		storyPageUI.transform.Find ("RedoButton").GetComponent<Button> ().onClick.AddListener(delegate{redoStory();});
 
@@ -288,7 +288,6 @@ public class reporterGameObject : MonoBehaviour {
 		
 		g.newsPaper.pNewspaper.todaysStory = r.currentStory;
 	
-		g.fsm.ChangeState(g.States.PrintingMode);
 
 		//PRINTER LOGIC
 			// SET TODAYS STORY 
