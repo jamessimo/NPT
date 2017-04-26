@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UIManager;
+using Tween;
 
 
 public class HireReportersList : MonoBehaviour {
@@ -12,6 +13,13 @@ public class HireReportersList : MonoBehaviour {
 
 	public GameObject listLocation;
 
+	public GameObject[] CVs;
+
+	public List<reporter> reporterCVs;
+
+	UIController UIController;
+
+	HiredReportersList hiredReporterScript;
 
 	mainGame mainGame;
 
@@ -19,19 +27,33 @@ public class HireReportersList : MonoBehaviour {
 	void Start () {
 		
 		mainGame = GameObject.FindObjectOfType<mainGame>();
-
+		UIController = GameObject.FindObjectOfType<UIController> ();
+		hiredReporterScript = GameObject.FindObjectOfType<HiredReportersList> ();
 		createList ();
 		
 	}
-	
+	void OnEnable()
+	{			
+		mainGame.reportersChanged += createList;
+
+	}
+
+	void OnDisable()
+	{
+		mainGame.reportersChanged -= createList;
+	}
 
 	public void createList(){
+
 		//Clear all items
-		int items = listLocation.transform.childCount - 1;
-		for (int i = items; i >= 0; i--)
-		{
-			GameObject.Destroy(listLocation.transform.GetChild(i).gameObject);
+		foreach (Transform child in listLocation.transform) {
+			Destroy(child.gameObject);
 		}
+		CVs = GameObject.FindGameObjectsWithTag ("CV");
+		foreach (GameObject cv in CVs) {
+			Destroy(cv.gameObject);
+		}
+
 		int j = 0;
 		foreach (reporter r in mainGame.reporters.reporters) {
 			if (r.isHired == false) {
@@ -48,6 +70,7 @@ public class HireReportersList : MonoBehaviour {
 				listItem.GetComponent<Button>().onClick.AddListener(delegate{openCV(r);});
 
 				r.myHireCard = listItem;
+
 				//Make a new CV
 				GameObject singleCV = (GameObject)Instantiate (singleReporterCV);
 
@@ -63,6 +86,9 @@ public class HireReportersList : MonoBehaviour {
 				singleCV.transform.Find ("Age").GetComponent<TextMeshProUGUI> ().text = r.age.ToString ();
 				singleCV.transform.Find ("Gender").GetComponent<TextMeshProUGUI> ().text = r.gender.ToString();
 				singleCV.transform.Find ("Wage").GetComponent<TextMeshProUGUI> ().text = r.wage.ToString("C");
+
+				singleCV.transform.Find ("Image").GetComponent<Image> ().sprite = r.avatar;
+
 				singleCV.transform.Find ("Personality").GetComponent<TextMeshProUGUI> ().text = r.mainPersonality.name;
 				//this.transform.Find ("Tooltip").GetComponent<BoundTooltipTrigger> ().text = r.mainPersonality.description;
 				singleCV.transform.Find ("SpeedSlider").GetComponent<Slider> ().value = r.skills.speed;
@@ -107,48 +133,135 @@ public class HireReportersList : MonoBehaviour {
 				}
 
 				singleCV.transform.Find ("HireButton").GetComponent<Button> ().onClick.AddListener(delegate{hireReporter(r);});
-
 				singleCV.transform.Find ("Close").GetComponent<Button> ().onClick.AddListener(delegate{closeCV(r);});
 
 				r.myCV = singleCV;
 
+				r.myCV.SetActive (false);
+
 				j++;
 			}
 		}
-		
 	}
 
+
 	public void hireReporter(reporter currentReporter){
-		Debug.Log (currentReporter.firstName + " hire");
+
+
+		GameObject hiredTempCard = (GameObject)Instantiate (hiredReporterScript.singleHiredReporterUI);
+		GameObject currentCV = currentReporter.myCV.gameObject;
+
+		hiredTempCard.transform.SetParent(hiredReporterScript.listLocation.transform,false);
+		hiredTempCard.GetComponent<CanvasGroup> ().alpha = 1;
+
+		Vector3 startPos = currentCV.transform.position;
+		Vector3 endPos = hiredTempCard.transform.position;
+
+		endPos = hiredTempCard.GetComponent<RectTransform> ().position;
+				
+		UIController.changeTabReporters ("CURRENT");
+
+		currentCV.gameObject.Tween("SlideRight", startPos, endPos, 1f, TweenScaleFunctions.CubicEaseIn, (t) =>
+		{
+			// progress
+			currentCV.transform.localScale = new Vector3(1,1-t.CurrentProgress,1-t.CurrentProgress);
+				//currentCV.GetComponent<RectTransform>().rect.height;
+			currentCV.transform.position = t.CurrentValue;
+			
+		}, (t) =>
+		{
+			//Finished
+			currentReporter.hireMe ();
+			mainGame.hiredReporters.Add (currentReporter);
+
+
+			currentReporter.reporterGO.transform.position = mainGame.spawnZone.transform.position;
+			GameObject go = (GameObject)Instantiate (currentReporter.reporterGO);
+			go.GetComponent<reporterGameObject> ().r = currentReporter;
+		});
+	}
+	
+	private IEnumerator DEPhireReporter(reporter currentReporter){
+
+		float overTime = 1f;
+		float startTime = Time.time;
+		float scale = 1;
+
+		GameObject hiredTempCard = (GameObject)Instantiate (hiredReporterScript.singleHiredReporterUI);
+
+		hiredTempCard.transform.SetParent(hiredReporterScript.listLocation.transform, false);
+		hiredTempCard.GetComponent<CanvasGroup> ().alpha = 1;
+
+		Vector3 source = currentReporter.myCV.transform.position;
+		Vector3 target = hiredTempCard.transform.position;
+
+		UIController.changeTabReporters ("CURRENT");
+
+		while(Time.time < startTime + overTime)
+		{
+			currentReporter.myCV.transform.localScale = new Vector3 (scale, scale, scale);
+			currentReporter.myCV.transform.position = Vector3.Lerp(source, target, (Time.time - startTime)/overTime);
+			scale = 1 - (Time.time - startTime)/overTime;
+			yield return null;
+		}
+
+		//currentReporter.myCV.transform.position = target;
+		//THIS NEEDS TO BE LIKE A FUCNTION
 
 		currentReporter.hireMe ();
 		mainGame.hiredReporters.Add (currentReporter);
 
-		createList ();
-	
-		//StartCoroutine(commonHelpers.fadeInOut(currentReporter.myCV.GetComponent<CanvasGroup>()));
-
 
 		currentReporter.reporterGO.transform.position = mainGame.spawnZone.transform.position;
 		GameObject go = (GameObject)Instantiate (currentReporter.reporterGO);
-		//THIS NEEDS TO BE LIKE A FUCNTION
 		go.GetComponent<reporterGameObject> ().r = currentReporter;
+
 	
 
 	}
 
 	public void openCV(reporter currentReporter){
-		currentReporter.myCV.SetActive (true);
+
+		//Show all CV's
+		reporterCVs.Clear();
+
+		reporterCVs.Add (currentReporter);
+
+		foreach (reporter r in mainGame.reporters.reporters) {
+			if (r.isHired == false && r != currentReporter) {
+				r.myCV.SetActive (true);
+				reporterCVs.Add (r);
+			}
+		}
+
 		commonHelpers.BringToFront (currentReporter.myCV);
-		StartCoroutine(commonHelpers.fadeInOut(currentReporter.myCV.GetComponent<CanvasGroup>(),
+
+		GameObject.Find ("NextCVRight").GetComponent<Button> ().onClick.AddListener (delegate {
+			currentReporter.myCV.GetComponent<cvController> ().moveRight (delegate {
+				commonHelpers.BringToBack (currentReporter.myCV);
+				Debug.Log(GameObject.FindGameObjectWithTag("CV").transform.Find("ReporterName").GetComponent<TextMeshProUGUI> ().text);
+
+				openCV(reporterCVs[1]);
+
+			});
+		});
+
+		/*StartCoroutine(commonHelpers.fadeInOut(currentReporter.myCV.GetComponent<CanvasGroup>(),
 			delegate{}
-		));
+		));*/
 	}
 
 	public void closeCV(reporter currentReporter){
-		StartCoroutine(commonHelpers.fadeInOut(currentReporter.myCV.GetComponent<CanvasGroup>(),
+		//Show all CV's
+
+		foreach (reporter r in mainGame.reporters.reporters) {
+			if (r.isHired == false) {
+				r.myCV.SetActive (false);
+			}
+		}
+		/*StartCoroutine(commonHelpers.fadeInOut(currentReporter.myCV.GetComponent<CanvasGroup>(),
 			delegate{currentReporter.myCV.SetActive (false);}
-		));
+		));*/
 	}
 		
 }

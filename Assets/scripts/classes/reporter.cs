@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]                                                          
 public class reporter {
@@ -9,6 +10,7 @@ public class reporter {
     public string secondName;
     public int age;
     public Gender gender;
+	public Sprite avatar; 
     public basicSkills skills;
 
     public allTopics allTopics;
@@ -38,12 +40,11 @@ public class reporter {
 	public GameObject myHireCard;
 	public GameObject myCard;
 
+	public string currentState;
+
 
 	public void init (){
 		//Cleanup floats
-	}
-	public void writeArticle (){
-		Debug.Log (this.firstName);
 	}
 	public void hireMe (){
 		this.isHired = true;

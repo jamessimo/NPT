@@ -47,35 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AutoIntensity.cs" />
-     <Compile Include="Assets\Scripts\HiredReportersList.cs" />
-     <Compile Include="Assets\Scripts\Topbar.cs" />
-     <Compile Include="Assets\Scripts\UIManager.cs" />
-     <Compile Include="Assets\Scripts\classes\allTopics.cs" />
-     <Compile Include="Assets\Scripts\classes\audience.cs" />
-     <Compile Include="Assets\Scripts\classes\basicSkills.cs" />
-     <Compile Include="Assets\Scripts\classes\desk.cs" />
-     <Compile Include="Assets\Scripts\classes\headlines.cs" />
-     <Compile Include="Assets\Scripts\classes\newspaper.cs" />
-     <Compile Include="Assets\Scripts\classes\personality.cs" />
-     <Compile Include="Assets\Scripts\classes\political.cs" />
-     <Compile Include="Assets\Scripts\classes\reporter.cs" />
-     <Compile Include="Assets\Scripts\classes\story.cs" />
-     <Compile Include="Assets\Scripts\classes\topic.cs" />
-     <Compile Include="Assets\Scripts\classes\world.cs" />
-     <Compile Include="Assets\Scripts\editorScripts\allReporters.cs" />
-     <Compile Include="Assets\Scripts\editorScripts\editorScript.cs" />
-     <Compile Include="Assets\Scripts\editorScripts\editorScriptAudicance.cs" />
-     <Compile Include="Assets\Scripts\editorScripts\editorScriptT.cs" />
-     <Compile Include="Assets\Scripts\editorScripts\playerAudience.cs" />
-     <Compile Include="Assets\Scripts\editorScripts\playerNewspaper.cs" />
-     <Compile Include="Assets\Scripts\helperFunctions\colorizeSlider.cs" />
-     <Compile Include="Assets\Scripts\hireReportersList.cs" />
-     <Compile Include="Assets\Scripts\mainGame.cs" />
-     <Compile Include="Assets\Scripts\modalWindow\ModalPanel.cs" />
-     <Compile Include="Assets\Scripts\reporterGameObject.cs" />
-     <Compile Include="Assets\Scripts\sceneChanger.cs" />
-     <Compile Include="Assets\Scripts\stateMachines\StateMachine.cs" />
-     <Compile Include="Assets\Scripts\stateMachines\StateMachineRunner.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark02.cs" />
@@ -107,6 +78,8 @@
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\WarpTextExample.cs" />
+     <Compile Include="Assets\Tween\Demo\TweenDemo.cs" />
+     <Compile Include="Assets\Tween\Tween.cs" />
      <Compile Include="Assets\UIController.cs" />
      <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
      <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
@@ -115,6 +88,37 @@
      <Compile Include="Assets\UnityChan\Scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
      <Compile Include="Assets\archBall.cs" />
+     <Compile Include="Assets\cvController.cs" />
+     <Compile Include="Assets\scripts\HireReportersList.cs" />
+     <Compile Include="Assets\scripts\HiredReportersList.cs" />
+     <Compile Include="Assets\scripts\Topbar.cs" />
+     <Compile Include="Assets\scripts\Tween.cs" />
+     <Compile Include="Assets\scripts\UIManager.cs" />
+     <Compile Include="Assets\scripts\classes\allTopics.cs" />
+     <Compile Include="Assets\scripts\classes\audience.cs" />
+     <Compile Include="Assets\scripts\classes\basicSkills.cs" />
+     <Compile Include="Assets\scripts\classes\desk.cs" />
+     <Compile Include="Assets\scripts\classes\headlines.cs" />
+     <Compile Include="Assets\scripts\classes\newspaper.cs" />
+     <Compile Include="Assets\scripts\classes\personality.cs" />
+     <Compile Include="Assets\scripts\classes\political.cs" />
+     <Compile Include="Assets\scripts\classes\reporter.cs" />
+     <Compile Include="Assets\scripts\classes\story.cs" />
+     <Compile Include="Assets\scripts\classes\topic.cs" />
+     <Compile Include="Assets\scripts\classes\world.cs" />
+     <Compile Include="Assets\scripts\editorScripts\allReporters.cs" />
+     <Compile Include="Assets\scripts\editorScripts\editorScript.cs" />
+     <Compile Include="Assets\scripts\editorScripts\editorScriptAudicance.cs" />
+     <Compile Include="Assets\scripts\editorScripts\editorScriptT.cs" />
+     <Compile Include="Assets\scripts\editorScripts\playerAudience.cs" />
+     <Compile Include="Assets\scripts\editorScripts\playerNewspaper.cs" />
+     <Compile Include="Assets\scripts\helperFunctions\colorizeSlider.cs" />
+     <Compile Include="Assets\scripts\mainGame.cs" />
+     <Compile Include="Assets\scripts\modalWindow\ModalPanel.cs" />
+     <Compile Include="Assets\scripts\reporterGameObject.cs" />
+     <Compile Include="Assets\scripts\sceneChanger.cs" />
+     <Compile Include="Assets\scripts\stateMachines\StateMachine.cs" />
+     <Compile Include="Assets\scripts\stateMachines\StateMachineRunner.cs" />
      <Compile Include="Assets\unity-ui-extensions\Examples\UIVerticalScrollerDemo\Scripts\ScrollingCalendar.cs" />
      <Compile Include="Assets\unity-ui-extensions\Examples\testHref.cs" />
      <Compile Include="Assets\unity-ui-extensions\Scripts\Controls\Accordion\Accordion.cs" />
@@ -242,6 +246,7 @@
      <Compile Include="Assets\unity-ui-extensions\Scripts\Utilities\switchToRectTransform.cs" />
      <Compile Include="Assets\unity-ui-extensions\Scripts\VR Extensions\VRCursor.cs" />
      <Compile Include="Assets\unity-ui-extensions\Scripts\VR Extensions\VRInputModule.cs" />
+     <Compile Include="Assets\updateHiredReporter.cs" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
@@ -264,6 +269,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceRaytrace.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
+     <None Include="Assets\Tween\Readme.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
@@ -383,7 +389,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro">
- <HintPath>/Users/jamessimo/Sites/NPT/Assets/TextMesh Pro/Plugins/TextMeshPro.dll</HintPath>
+ <HintPath>/Users/jamessimonson/Sites/NPT/Assets/TextMesh Pro/Plugins/TextMeshPro.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

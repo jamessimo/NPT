@@ -35,7 +35,11 @@ public class reporterGameObject : MonoBehaviour {
 		LeaveDesk
 
 	}
+
 	public StateMachine<States> fsm;
+
+	public delegate void stateChange();
+	public static event stateChange stateChanged;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +48,16 @@ public class reporterGameObject : MonoBehaviour {
 		agent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
 		g = GameObject.FindObjectOfType<mainGame>();
+
+	}
+	void Update () {
+		
+
+		if (r.currentState != fsm.State.ToString () && stateChanged != null)
+		{
+			r.currentState = fsm.State.ToString ();
+			stateChanged();
+		}
 
 	}
 
@@ -181,20 +195,24 @@ public class reporterGameObject : MonoBehaviour {
 
 		//TODO add a sprite effect to r.reporterGO
 
+		//FINISHED MY STORY
 		if (r.progress >= 1f) {
 			r.progress = 1f;
 			//presentStory ();
 		}
 
+		//FINISHED BY STORY AND NEWSPAPER
 		if (r.progress >= 1f && g.newsPaper.pNewspaper.progress >= 1f) {
 			//SHOW STORY TO USER
+
 			fsm.ChangeState(States.IdleAtDesk);
 		}
+
 
 		//ADD TO OWN STORY
 		if (r.progress < 1f) {
 			r.progress += r.skills.speed / 100;
-			Debug.Log ("Story progress: " + r.progress);
+			// Debug.Log ("Story progress: " + r.progress);
 		}
 
 		//ADD TO NEWSPAPER
@@ -204,9 +222,9 @@ public class reporterGameObject : MonoBehaviour {
 				g.newsPaper.pNewspaper.progress += r.skills.speed / 400;
 			} else {
 				//REPORTER IS ADDING TO HIS OWN STORY
-				g.newsPaper.pNewspaper.progress += r.skills.speed / 500;
+				g.newsPaper.pNewspaper.progress += r.skills.speed / 600;
 			}
-			Debug.Log (g.newsPaper.pNewspaper.progress);
+			//Debug.Log (g.newsPaper.pNewspaper.progress);
 
 		}
 
@@ -243,13 +261,8 @@ public class reporterGameObject : MonoBehaviour {
 		storyPageUI.transform.Find ("StoryRight").GetComponent<Slider> ().value = r.currentStory.political.right;
 
 		storyPageUI.transform.Find ("EditButton").GetComponent<Button> ().onClick.AddListener(delegate{draftAdd();});
-		storyPageUI.transform.Find ("PublishButton").GetComponent<Button> ().onClick.AddListener(delegate{
-			publishStory();
-
-		});
+		storyPageUI.transform.Find ("PublishButton").GetComponent<Button> ().onClick.AddListener(delegate{publishStory();});
 		storyPageUI.transform.Find ("RedoButton").GetComponent<Button> ().onClick.AddListener(delegate{redoStory();});
-
-
 
 	}
 
@@ -288,7 +301,6 @@ public class reporterGameObject : MonoBehaviour {
 		
 		g.newsPaper.pNewspaper.todaysStory = r.currentStory;
 	
-
 		//PRINTER LOGIC
 			// SET TODAYS STORY 
 			// TELL ALL REPORTERS TO STOP MAKING STORIES

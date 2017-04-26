@@ -12,13 +12,18 @@ public class mainGame : MonoBehaviour {
     public allReporters reporters;
 	public playerNewspaper newsPaper;
 
-
 	public List<reporter> hiredReporters;
+	public int hiredReportersCount;
+
 	public headlines HEADLINES;
 
 	//private ModalPanel modalPanel;
 
 	public GameObject spawnZone;
+
+	public delegate void reportersChange();
+	public static event reportersChange reportersChanged;
+
 
 	[Range(0, 1f)] public float greenTime;
 	[Range(0, 1f)] public float amberTime;
@@ -50,10 +55,6 @@ public class mainGame : MonoBehaviour {
 
 		init ();
 
-
-
-
-
 		/*
 
 		ModalPanelDetails modalPanelDetails = new ModalPanelDetails ();
@@ -77,6 +78,15 @@ public class mainGame : MonoBehaviour {
 
 
 	}
+	// Update is called once per frame
+	void Update () {
+		if (hiredReporters.Count != hiredReportersCount && reportersChanged != null)
+		{
+			hiredReportersCount = hiredReporters.Count;
+			reportersChanged();
+		}
+	}
+
 
 	public void Play_Enter(){
 		unPauseGame ();
@@ -89,7 +99,7 @@ public class mainGame : MonoBehaviour {
 		} else {
 			fsm.ChangeState(States.WritingMode);
 		}
-		Debug.Log (fsm.State);
+		//Debug.Log (fsm.State);
 	}
 
 	public void WritingMode_Enter(){
@@ -107,30 +117,30 @@ public class mainGame : MonoBehaviour {
 	public void PrintingMode_Enter(){
 		Debug.Log("NOE THE NEWSPAPER IS PRINTING");
 		//LOOP THROUGH ALL REPORTERS AND CHANGE STATE TO IDLE
-		foreach (reporter r in hiredReporters) {
-			reporterGameObject iReporter = r.reporterGO.GetComponent<reporterGameObject> ();
-			r.reporterGO.GetComponent<reporterGameObject> ().fsm.ChangeState (reporterGameObject.States.Idle);
-		}
 
 	}
 	public void PrintingMode_Update(){
 		//Untill the end of day, add to the number of printed papers
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-		
+
 	void init (){
 		newsPaper.pNewspaper.progress = 0;
 		foreach (reporter r in reporters.reporters) {
+			r.isHired = false;
 			if (r.isHired == true) {
-				GameObject go = (GameObject)Instantiate (r.reporterGO);
-				go.GetComponent<reporterGameObject> ().r = r;
+				hiredReporters.Add (r);
 				//Find desk
 			}
 		}
+		hiredReportersCount = hiredReporters.Count;
+
+		foreach (reporter r in hiredReporters) {
+			GameObject go = (GameObject)Instantiate (r.reporterGO);
+			go.GetComponent<reporterGameObject> ().r = r;
+
+		}
+
 		//hide blur
 		//Create All topics list
 		/*masterTopicsList.topics.Add(new topic ("finance",true));

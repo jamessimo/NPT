@@ -48,6 +48,9 @@ namespace UIManager {
 		static public void BringToFront(GameObject current) {
 			current.transform.SetAsLastSibling ();
 		}
+		static public void BringToBack(GameObject current) {
+			current.transform.SetAsFirstSibling ();
+		}
 	
 	}
 
